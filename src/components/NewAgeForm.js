@@ -2,18 +2,18 @@ import React, {useState} from 'react';
 
 export const NewAgeForm = (props) => {
     
-    const [age, setAge] = useState('');
-    const handleAgeInput = (e) => {
+    const [age, setAge] = useState(''); // Set to empty string
+    const handleAgeInput = (e) => {  
         const int = parseInt(e.target.value, 10);
-        setAge(int >= 0 ? int:'');
+        setAge(int >= 0 ? int:'');  // This ensures that age will be a number
     }
-
+        // Now we define what happens when we submit the form
     const onSubmit = (e) => {
         e.preventDefault();
         if (age) {
-            props.addNewAge(age);
+            props.addNewAge(age);  // Calling addNewAge on props being passed into it
             
-            setAge('')
+            setAge('')  // After completion we set back to empty string
         } else {
             console.log('invalid age input');
         }
@@ -24,7 +24,7 @@ export const NewAgeForm = (props) => {
             <h4>Add age</h4>
             <form onSubmit={onSubmit}>
                 
-                <input
+                <input  // Our input text box
                     type='text'
                     placeholder='age'
                     onChange={handleAgeInput}

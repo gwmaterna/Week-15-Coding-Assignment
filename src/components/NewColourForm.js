@@ -1,15 +1,14 @@
 import React, {useState} from 'react';
 
 export const NewColourForm = (props) => {
-    const [colour, setColour] = useState('');
+    const [colour, setColour] = useState('');  // Set state to empty string to begin    
     
-    
-
+        // Now we define what happens when we submit the form
     const onSubmit = (e) => {
         e.preventDefault();
         if (colour) {
-            props.addNewColour(colour);
-            setColour('')
+            props.addNewColour(colour);  // Calling addNewColour on props being passed into it
+            setColour('')  // After completion, set back to empty string
             
         } else {
             console.log('invalid colour input');

@@ -28,6 +28,32 @@ class UnicornsApi {  // Making a class to house our http requests
         console.log('There/s an issue with update unicorn', e);
         }
     } // Above are the 2 methods needed to to send GET and UPDATE requests
+
+    delete = async (unicorn) => {
+      try {
+          const resp = await fetch(`${UNICORNS_ENDPOINT}/${unicorn.id}`, {
+              method: 'DELETE'
+          });
+          return await resp.json();
+      } catch (e) {
+          console.log('There/s an issue with delete unicorn', e);
+      }
+
+    // delete = async (id) => {
+    //     try {
+    //       const response = await fetch(UNICORNS_ENDPOINT + "/" + id, {
+    //         method: "DELETE",
+    //         headers: {
+    //           "Content-Type": "application/json",
+    //         },
+    //       });
+    //       const data = await response.json();
+    //       return data;
+    //     } catch (error) {
+    //       console.log("There is an error in the delete method", error);
+    //     }
+    //   };
+    };  
 }
 
 export const unicornsApi = new UnicornsApi();
